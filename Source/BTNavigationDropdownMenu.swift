@@ -382,7 +382,7 @@ open class BTNavigationDropdownMenu: UIView {
         self.menuTitle.textColor = self.configuration.menuTitleColor
         self.menuArrow.sizeToFit()
         self.menuArrow.center = CGPoint(x: self.menuTitle.frame.maxX + self.configuration.arrowPadding, y: self.frame.size.height/2)
-        self.menuWrapper.frame.origin.y = self.navigationController!.navigationBar.frame.maxY
+        self.menuWrapper.frame.origin.y = self.navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.maxY
         self.tableView.reloadData()
     }
 
@@ -432,8 +432,8 @@ open class BTNavigationDropdownMenu: UIView {
     }
 
     func showMenu() {
-        self.menuWrapper.frame.origin.y = self.navigationController!.navigationBar.frame.maxY
-
+        self.menuWrapper.frame.origin.y = self.navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.maxY
+        
         self.isShown = true
 
         // Table view header
